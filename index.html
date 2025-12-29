@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gouicem Dental Clinic - Clinique dentaire d'excellence à Blida. Orthodontie, Implantologie, Esthétique et Urgences.">
+    <title>Gouicem Dental Clinic | Excellence Dentaire à Blida</title>
+
+    <!-- SEO: Title + Description -->
+<title>Gouicem Dental Clinic | Clinique dentaire à Blida (ODF, Implants, Esthétique)</title>
+<meta name="description" content="Gouicem Dental Clinic à Blida : orthodontie (ODF), implantologie, esthétique dentaire, zircon/e-max, urgences dentaires, blanchiment. Clinique moderne, hygiène stricte, prise de rendez-vous rapide." />
+
+<!-- SEO: Keywords (moins important qu'avant, mais utile) -->
+<meta name="keywords" content="clinique dentaire Blida, dentiste Blida, orthodontie Blida, ODF Blida, implantologie Blida, implants dentaires Blida, esthétique dentaire Blida, facettes dentaires Blida, zircon Blida, e-max Blida, urgence dentaire Blida, blanchiment dentaire Blida, cabinet dentaire Blida, soins dentaires Blida, Gouicem Dental Clinic" />
+
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://gouicemdentalclinic.vercel.app/" />
+
+<!-- Open Graph (Facebook/WhatsApp/LinkedIn) -->
+<meta property="og:title" content="Gouicem Dental Clinic | Clinique dentaire à Blida" />
+<meta property="og:description" content="ODF, implantologie, esthétique, zircon/e-max, urgences, blanchiment. RDV rapide à Blida." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gouicemdentalclinic.vercel.app/" />
+<meta property="og:image" content="https://gouicemdentalclinic.vercel.app/og-image.jpg" />
+<meta property="og:locale" content="fr_FR" />
+
+<!-- Twitter Preview -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gouicem Dental Clinic | Dentiste à Blida" />
+<meta name="twitter:description" content="Clinique dentaire à Blida : ODF, implants, esthétique, urgences, blanchiment." />
+<meta name="twitter:image" content="https://gouicemdentalclinic.vercel.app/og-image.jpg" />
+
+<!-- Favicon (optionnel mais conseillé) -->
+<link rel="icon" href="/favicon.ico" />
+
+    
+    <!-- Google Fonts: Playfair Display (Serif/Luxe) & Inter (Sans/Moderne) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            mauve: '#483D8B', // DarkSlateBlue (Vrai Bleu Mauve)
+                            gold: '#D4AF37',  // Doré Premium
+                            goldLight: '#F3E5AB',
+                            goldDark: '#B4941F',
+                            light: '#F8F9FA',
+                            dark: '#1F2937'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    boxShadow: {
+                        'gold': '0 4px 14px 0 rgba(212, 175, 55, 0.39)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for specific animations -->
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #374151;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Scroll Offset for sticky header */
+        html {
+            scroll-padding-top: 80px;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered delays for children */
+        .reveal-delay-100 { transition-delay: 100ms; }
+        .reveal-delay-200 { transition-delay: 200ms; }
+        .reveal-delay-300 { transition-delay: 300ms; }
+
+        /* Modal Transitions */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+        .modal.open .modal-content {
+            transform: scale(1);
+        }
+        
+        /* Map grayscale to color on hover */
+        .map-frame iframe {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+        .map-frame:hover iframe {
+            filter: grayscale(0%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 relative">
+
+    <!-- Navbar -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="h-16 w-20 overflow-hidden rounded-xl border-2 border-brand-gold bg-white flex items-center justify-center">
+    <img src="log.jpg" alt="Gouicem Logo" class="h-full w-full object-contain p-1"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <span class="text-2xl font-serif font-bold hidden items-center justify-center text-brand-mauve">G</span>
+</div>
+
+                <div class="flex flex-col">
+                    <span class="text-brand-mauve font-serif font-bold text-xl leading-none tracking-wide group-hover:text-brand-gold transition-colors">GOUICEM</span>
+                    <span class="text-xs text-gray-500 uppercase tracking-widest">Dental Clinic</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#home" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors uppercase tracking-wider relative group py-2">
+                    Accueil
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors uppercase tracking-wider relative group py-2">
+                    À Propos
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#services" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors uppercase tracking-wider relative group py-2">
+                    Services
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#hours" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors uppercase tracking-wider relative group py-2">
+                    Horaires
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="nav-link text-sm font-medium hover:text-brand-gold transition-colors uppercase tracking-wider relative group py-2">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-brand-gold text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-brand-mauve transition-all duration-300 shadow-md hover:shadow-gold transform hover:-translate-y-0.5">
+                    Prendre rendez-vous
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-mauve focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-6 flex flex-col gap-4">
+            <a href="#home" class="text-brand-mauve font-medium py-2 border-b border-gray-50">Accueil</a>
+            <a href="#about" class="text-brand-mauve font-medium py-2 border-b border-gray-50">À Propos</a>
+            <a href="#services" class="text-brand-mauve font-medium py-2 border-b border-gray-50">Services</a>
+            <a href="#hours" class="text-brand-mauve font-medium py-2 border-b border-gray-50">Horaires</a>
+            <a href="#contact" class="text-brand-mauve font-medium py-2">Contact</a>
+            <a href="tel:+213123456789" class="bg-brand-mauve text-white text-center py-3 rounded-lg mt-2">Appeler maintenant</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen relative flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 z-0">
+             <!-- Placeholder clean modern dental clinic image -->
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop" alt="Clinique Moderne" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-mauve/90 to-brand-mauve/40 mix-blend-multiply"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-white space-y-8 reveal active">
+                <div class="inline-flex items-center gap-2 bg-brand-gold/20 backdrop-blur-sm px-4 py-1.5 rounded-full border border-brand-gold/30">
+                    <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                    
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight">
+                    Votre sourire, <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-goldLight">notre signature.</span>
+                </h1>
+                
+                <p class="text-gray-200 text-lg md:text-xl max-w-lg font-light leading-relaxed">
+                    Bienvenue chez Gouicem Dental Clinic à Blida. Une approche humaine et technologique pour des soins dentaires d'excellence.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#contact" class="px-8 py-4 bg-brand-gold text-brand-mauve font-bold rounded-lg shadow-lg hover:bg-white hover:text-brand-mauve transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        Prendre rendez-vous
+                    </a>
+                    <a href="#services" class="px-8 py-4 bg-transparent border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-brand-mauve transition-all duration-300 text-center">
+                        Découvrir nos soins
+                    </a>
+                </div>
+
+                <!-- Badges -->
+                <div class="pt-8 flex flex-wrap gap-6 text-sm text-gray-300">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>Hygiène stricte</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        <span>Technologie moderne</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <span>Soins personnalisés</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (No Images as requested) -->
+    <section id="about" class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h4 class="text-brand-gold font-bold tracking-widest uppercase mb-2">À propos de nous</h4>
+                <h2 class="text-4xl font-serif font-bold text-brand-mauve mb-6">Excellence médicale au cœur de Blida</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
+                
+                <p class="text-gray-600 mb-8 leading-relaxed text-lg">
+                    Située idéalement à Blida, la <strong class="text-brand-mauve">Gouicem Dental Clinic</strong> se distingue par une approche qui combine expertise technique et confort absolu du patient. Notre cabinet est conçu pour apaiser et soigner, en utilisant les dernières innovations en dentisterie.
+                </p>
+                
+                <!-- Values Cards Centered -->
+                <div class="grid sm:grid-cols-2 gap-6 mt-12 text-left">
+                    <div class="p-6 bg-slate-50 rounded-xl border-l-4 border-brand-gold shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-serif font-bold text-xl text-brand-mauve mb-2">Notre Mission</h3>
+                        <p class="text-gray-600">Offrir des sourires sains et esthétiques grâce à des traitements durables et indolores.</p>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-xl border-l-4 border-brand-gold shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="font-serif font-bold text-xl text-brand-mauve mb-2">Notre Vision</h3>
+                        <p class="text-gray-600">Démocratiser l'accès aux soins de pointe (Zircon, E-max, Implants) en Algérie.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6 mt-10">
+                    <div class="flex items-center gap-3 text-gray-700 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm">
+                        <span class="w-6 h-6 rounded-full bg-brand-mauve text-brand-gold flex items-center justify-center text-xs">✓</span>
+                        Équipe multidisciplinaire expérimentée
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-700 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm">
+                        <span class="w-6 h-6 rounded-full bg-brand-mauve text-brand-gold flex items-center justify-center text-xs">✓</span>
+                        Plateau technique de dernière génération
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-700 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm">
+                        <span class="w-6 h-6 rounded-full bg-brand-mauve text-brand-gold flex items-center justify-center text-xs">✓</span>
+                        Respect strict des normes de stérilisation
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (REVERTED TO CUSTOM SVGs) -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h4 class="text-brand-gold font-bold tracking-widest uppercase mb-2">Nos Expertises</h4>
+                <h2 class="text-4xl font-serif font-bold text-brand-mauve">Une gamme complète de soins</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: ODF (SVG) -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-gold transition-all duration-300 transform hover:-translate-y-2 group reveal reveal-delay-100">
+                    <div class="w-14 h-14 bg-brand-mauve/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-mauve transition-colors">
+                        <!-- ODF Icon: Braces representation -->
+                        <svg class="w-8 h-8 text-brand-mauve group-hover:text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 14h16M9 8v6m6-6v6m-9-8a3 3 0 00-3 3v2a3 3 0 003 3h12a3 3 0 003-3V9a3 3 0 00-3-3H6z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-mauve mb-3">Orthodontie (ODF)</h3>
+                    <p class="text-gray-500 text-sm mb-6">Alignement dentaire pour enfants et adultes. Appareils métalliques, céramiques ou aligneurs invisibles.</p>
+                    <button onclick="openModal('modal-odf')" class="text-brand-gold font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                        En savoir plus <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Service 2: Implantation (SVG) -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-gold transition-all duration-300 transform hover:-translate-y-2 group reveal reveal-delay-200">
+                    <div class="w-14 h-14 bg-brand-mauve/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-mauve transition-colors">
+                        <!-- Implant Icon: Screw shape -->
+                        <svg class="w-8 h-8 text-brand-mauve group-hover:text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2v20m-3-18h6m-5 4h4m-5 4h6m-5 4h4m-3 6a2 2 0 100-4 2 2 0 000 4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-mauve mb-3">Implantologie</h3>
+                    <p class="text-gray-500 text-sm mb-6">Remplacement durable des dents manquantes par des implants en titane biocompatibles.</p>
+                    <button onclick="openModal('modal-implant')" class="text-brand-gold font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                        En savoir plus <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Service 3: Esthétique (SVG) -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-gold transition-all duration-300 transform hover:-translate-y-2 group reveal reveal-delay-300">
+                    <div class="w-14 h-14 bg-brand-mauve/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-mauve transition-colors">
+                        <!-- Esthetique Icon: Sparkle/Diamond -->
+                        <svg class="w-8 h-8 text-brand-mauve group-hover:text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 4L18 6M18 4L20 6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-mauve mb-3">Esthétique Dentaire</h3>
+                    <p class="text-gray-500 text-sm mb-6">Facettes, design du sourire (Smile Design) et correction des imperfections pour un résultat éclatant.</p>
+                    <button onclick="openModal('modal-esthetique')" class="text-brand-gold font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                        En savoir plus <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Service 4: Zircon / E-max (SVG) -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-gold transition-all duration-300 transform hover:-translate-y-2 group reveal reveal-delay-100">
+                    <div class="w-14 h-14 bg-brand-mauve/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-mauve transition-colors">
+                        <!-- Crown Icon -->
+                        <svg class="w-8 h-8 text-brand-mauve group-hover:text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 16h14M5 16l-2-9 5 3 4-6 4 6 5-3-2 9" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-mauve mb-3">Prothèses (Zircon/E-max)</h3>
+                    <p class="text-gray-500 text-sm mb-6">Couronnes et bridges en matériaux haut de gamme (Zircone, Céramique pressée) pour un aspect naturel.</p>
+                    <button onclick="openModal('modal-prothese')" class="text-brand-gold font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                        En savoir plus <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Service 5: Urgence (SVG) -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-gold transition-all duration-300 transform hover:-translate-y-2 group reveal reveal-delay-200">
+                    <div class="w-14 h-14 bg-brand-mauve/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-mauve transition-colors">
+                        <!-- Urgence Icon: Pulse/Medical -->
+                        <svg class="w-8 h-8 text-brand-mauve group-hover:text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-mauve mb-3">Urgences Dentaires</h3>
+                    <p class="text-gray-500 text-sm mb-6">Prise en charge rapide des douleurs aiguës, abcès ou traumatismes dentaires.</p>
+                    <button onclick="openModal('modal-urgence')" class="text-brand-gold font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                        En savoir plus <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Service 6: Blanchiment (SVG) -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-gold transition-all duration-300 transform hover:-translate-y-2 group reveal reveal-delay-300">
+                    <div class="w-14 h-14 bg-brand-mauve/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-mauve transition-colors">
+                        <!-- Blanchiment Icon: Shine -->
+                        <svg class="w-8 h-8 text-brand-mauve group-hover:text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-mauve mb-3">Blanchiment Dentaire</h3>
+                    <p class="text-gray-500 text-sm mb-6">Éclaircissement de la teinte de l'émail au fauteuil ou en ambulatoire pour un sourire éclatant.</p>
+                    <button onclick="openModal('modal-blanchiment')" class="text-brand-gold font-semibold text-sm uppercase tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                        En savoir plus <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-brand-mauve text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 30px 30px;"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-serif text-center mb-16">Ce que disent nos patients</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 reveal">
+                    <div class="flex text-brand-gold mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">"Cabinet très moderne et d'une propreté irréprochable. Le Dr Gouicem a sauvé ma dent avec un traitement sans douleur."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-brand-mauve font-bold">A</div>
+                        <div>
+                            <p class="font-bold">Amine B.</p>
+                            <p class="text-xs text-gray-400">Patient Implantologie</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 reveal reveal-delay-200">
+                    <div class="flex text-brand-gold mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">"J'ai fait un blanchiment ici, le résultat est incroyable. L'équipe est très accueillante."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-brand-mauve font-bold">L</div>
+                        <div>
+                            <p class="font-bold">Leila M.</p>
+                            <p class="text-xs text-gray-400">Patiente Esthétique</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10 reveal reveal-delay-300">
+                    <div class="flex text-brand-gold mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic mb-6">"Professionnalisme au top pour l'orthodontie de mon fils. Explications claires et suivi sérieux."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-brand-mauve font-bold">K</div>
+                        <div>
+                            <p class="font-bold">Karim S.</p>
+                            <p class="text-xs text-gray-400">Parent patient ODF</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section id="hours" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center justify-center">
+                <div class="w-full md:w-1/2 reveal">
+                    <h4 class="text-brand-gold font-bold tracking-widest uppercase mb-2">Disponibilités</h4>
+                    <h2 class="text-4xl font-serif font-bold text-brand-mauve mb-6">Horaires d'ouverture</h2>
+                    <p class="text-gray-600 mb-8">
+                        Nous nous efforçons de vous recevoir dans les meilleurs délais. Pour les urgences, veuillez nous contacter par téléphone dès 8h00.
+                    </p>
+                    
+                    <div class="bg-slate-50 rounded-2xl p-8 shadow-inner">
+                        <table class="w-full text-left">
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="py-4">
+                                    <td class="py-3 font-semibold text-brand-mauve">Samedi - Mercredi</td>
+                                    <td class="py-3 text-right text-gray-600">08:30 - 17:00</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 font-semibold text-brand-mauve">Jeudi</td>
+                                    <td class="py-3 text-right text-gray-600">08:30 - 12:00</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 font-semibold text-brand-mauve">Vendredi</td>
+                                    <td class="py-3 text-right text-brand-gold font-bold">Fermé</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-4 text-xs text-red-500 font-semibold">* En cas d'urgence extrême en dehors des horaires, veuillez vous diriger vers l'hôpital le plus proche.</p>
+                </div>
+                
+                <div class="w-full md:w-1/2 reveal reveal-delay-200">
+                    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=2070&auto=format&fit=crop" alt="Salle d'attente" class="rounded-2xl shadow-2xl object-cover h-[400px] w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h4 class="text-brand-gold font-bold tracking-widest uppercase mb-2">Nous trouver</h4>
+                <h2 class="text-4xl font-serif font-bold text-brand-mauve">Contact & Localisation</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Info Cards -->
+                <div class="lg:col-span-1 space-y-6 reveal">
+                    <!-- Address -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-lg text-brand-mauve">Adresse</h3>
+                        <p class="text-gray-600">Cité 150 Logements, Blida, Algérie<br>(À côté de la Pharmacie Centrale)</p>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-lg text-brand-mauve">Téléphone</h3>
+                        <p class="text-gray-600 mb-2">+213 (0) 798250389</p>
+                        <p class="text-gray-600">+213 (0) 660666666</p>
+                        <a href="tel:+213798250389" class="inline-block mt-3 text-brand-gold font-semibold text-sm">Appeler maintenant &rarr;</a>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-lg text-brand-mauve">Email</h3>
+                        <p class="text-gray-600">guicemdental@gmail.com</p>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="lg:col-span-2 rounded-2xl overflow-hidden shadow-lg h-full min-h-[400px] bg-gray-200 relative map-frame reveal reveal-delay-200 group">
+                    <!-- Google Maps Placeholder (Blida Center) -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51303.49755456241!2d2.787679883584859!3d36.47016335359489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128f0c660654050b%3A0x675f32eb7a419266!2sBlida%2C%20Alg%C3%A9rie!5e0!3m2!1sfr!2sfr!4v1703698741258!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                    <a href="https://maps.google.com/?q=Blida,Algerie" target="_blank" class="absolute bottom-6 left-6 bg-white text-brand-mauve px-6 py-3 rounded-lg shadow-lg font-bold text-sm hover:bg-brand-gold hover:text-white transition-colors">
+                        Ouvrir dans Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-mauve text-white pt-16 pb-8 border-t-4 border-brand-gold">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                       
+                    <p class="text-gray-300 text-sm leading-relaxed max-w-sm">
+                        Votre santé bucco-dentaire est notre priorité. Une clinique moderne à Blida, dédiée à l'excellence et au confort des patients.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-brand-gold font-bold uppercase tracking-wider mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#home" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">À Propos</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#hours" class="hover:text-white transition-colors">Horaires</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                   
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+                <p>&copy; 2025 Gouicem Dental Clinic. Tous droits réservés.</p>
+                <p>Designed with excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (Hidden by default) -->
+    
+    <!-- Modal Template Functionality -->
+    <div id="modal-odf" class="modal fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="modal-content bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
+            <div class="h-32 bg-brand-mauve relative">
+                <button onclick="closeModal('modal-odf')" class="absolute top-4 right-4 text-white hover:text-brand-gold bg-white/10 rounded-full p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="absolute -bottom-8 left-8 w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg text-brand-mauve">
+                    <!-- ODF Modal Icon -->
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 14h16M9 8v6m6-6v6m-9-8a3 3 0 00-3 3v2a3 3 0 003 3h12a3 3 0 003-3V9a3 3 0 00-3-3H6z" /></svg>
+                </div>
+            </div>
+            <div class="pt-12 px-8 pb-8">
+                <h3 class="text-2xl font-serif font-bold text-brand-mauve mb-2">Orthodontie (ODF)</h3>
+                <p class="text-gray-600 mb-6">Nous corrigeons les malpositions dentaires pour améliorer l'esthétique et la fonction. Nos solutions incluent les bagues traditionnelles, céramiques et les aligneurs invisibles modernes.</p>
+                <a href="#contact" onclick="closeModal('modal-odf')" class="block w-full text-center bg-brand-gold text-white font-bold py-3 rounded-lg hover:bg-brand-mauve transition-colors">Prendre RDV pour consultation</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-implant" class="modal fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="modal-content bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
+            <div class="h-32 bg-brand-mauve relative">
+                <button onclick="closeModal('modal-implant')" class="absolute top-4 right-4 text-white hover:text-brand-gold bg-white/10 rounded-full p-2 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                 <div class="absolute -bottom-8 left-8 w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg text-brand-mauve">
+                    <!-- Implant Modal Icon -->
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2v20m-3-18h6m-5 4h4m-5 4h6m-5 4h4m-3 6a2 2 0 100-4 2 2 0 000 4z" /></svg>
+                </div>
+            </div>
+            <div class="pt-12 px-8 pb-8">
+                <h3 class="text-2xl font-serif font-bold text-brand-mauve mb-2">Implantologie</h3>
+                <p class="text-gray-600 mb-6">La solution idéale pour remplacer une ou plusieurs dents manquantes. L'implant agit comme une racine artificielle, offrant stabilité et confort comparable aux dents naturelles.</p>
+                <a href="#contact" onclick="closeModal('modal-implant')" class="block w-full text-center bg-brand-gold text-white font-bold py-3 rounded-lg hover:bg-brand-mauve transition-colors">Prendre RDV pour consultation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other modals follow same pattern, hidden for brevity but JS handles all IDs -->
+    <div id="modal-esthetique" class="modal fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="modal-content bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
+            <div class="h-32 bg-brand-mauve relative">
+                <button onclick="closeModal('modal-esthetique')" class="absolute top-4 right-4 text-white hover:text-brand-gold bg-white/10 rounded-full p-2 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                <div class="absolute -bottom-8 left-8 w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg text-brand-mauve">
+                    <!-- Esthetique Modal Icon -->
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 4L18 6M18 4L20 6" />
+                    </svg>
+                </div>
+            </div>
+            <div class="pt-12 px-8 pb-8">
+                <h3 class="text-2xl font-serif font-bold text-brand-mauve mb-2">Esthétique Dentaire</h3>
+                <p class="text-gray-600 mb-6">Redonnez de l'éclat à votre sourire grâce aux facettes, au remodelage gingival et aux techniques de Smile Design numérique.</p>
+                <a href="#contact" onclick="closeModal('modal-esthetique')" class="block w-full text-center bg-brand-gold text-white font-bold py-3 rounded-lg hover:bg-brand-mauve transition-colors">Prendre RDV</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-prothese" class="modal fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="modal-content bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
+            <div class="h-32 bg-brand-mauve relative">
+                <button onclick="closeModal('modal-prothese')" class="absolute top-4 right-4 text-white hover:text-brand-gold bg-white/10 rounded-full p-2 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                 <div class="absolute -bottom-8 left-8 w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg text-brand-mauve">
+                    <!-- Prothese Modal Icon -->
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 16h14M5 16l-2-9 5 3 4-6 4 6 5-3-2 9" /></svg>
+                </div>
+            </div>
+            <div class="pt-12 px-8 pb-8">
+                <h3 class="text-2xl font-serif font-bold text-brand-mauve mb-2">Prothèses Zircon / E-max</h3>
+                <p class="text-gray-600 mb-6">L'alliance parfaite entre solidité et esthétique. Le Zircone et la céramique E-max offrent une transparence proche de la dent naturelle sans métal grisâtre.</p>
+                <a href="#contact" onclick="closeModal('modal-prothese')" class="block w-full text-center bg-brand-gold text-white font-bold py-3 rounded-lg hover:bg-brand-mauve transition-colors">Prendre RDV</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-urgence" class="modal fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="modal-content bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
+            <div class="h-32 bg-brand-mauve relative">
+                <button onclick="closeModal('modal-urgence')" class="absolute top-4 right-4 text-white hover:text-brand-gold bg-white/10 rounded-full p-2 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                 <div class="absolute -bottom-8 left-8 w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg text-brand-mauve">
+                    <!-- Urgence Modal Icon -->
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                </div>
+            </div>
+            <div class="pt-12 px-8 pb-8">
+                <h3 class="text-2xl font-serif font-bold text-brand-mauve mb-2">Urgence Dentaire</h3>
+                <p class="text-gray-600 mb-6">Douleur intense ? Dent cassée ? Nous priorisons les urgences pour soulager la douleur rapidement. Appelez-nous immédiatement.</p>
+                <a href="tel:+213550000000" onclick="closeModal('modal-urgence')" class="block w-full text-center bg-red-600 text-white font-bold py-3 rounded-lg hover:bg-red-700 transition-colors">Appeler Urgence</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-blanchiment" class="modal fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="modal-content bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
+            <div class="h-32 bg-brand-mauve relative">
+                <button onclick="closeModal('modal-blanchiment')" class="absolute top-4 right-4 text-white hover:text-brand-gold bg-white/10 rounded-full p-2 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                 <div class="absolute -bottom-8 left-8 w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg text-brand-mauve">
+                    <!-- Blanchiment Modal Icon -->
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                </div>
+            </div>
+            <div class="pt-12 px-8 pb-8">
+                <h3 class="text-2xl font-serif font-bold text-brand-mauve mb-2">Blanchiment</h3>
+                <p class="text-gray-600 mb-6">Éclaircissement professionnel sûr et efficace. Gagnez plusieurs teintes en une séance pour un sourire radieux et rajeuni.</p>
+                <a href="#contact" onclick="closeModal('modal-blanchiment')" class="block w-full text-center bg-brand-gold text-white font-bold py-3 rounded-lg hover:bg-brand-mauve transition-colors">Prendre RDV</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript (Inline for Single File) -->
+    <script>
+        // --- 1. Mobile Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // --- 2. Scroll Reveal Animation ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- 3. Navbar Active State & Style Change on Scroll ---
+        const navbar = document.getElementById('navbar');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            // Navbar Style
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/0', 'bg-white/95'); // If transparency was higher
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+
+            // Active Link Highlight
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Offset for fixed header
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-brand-gold'); // Remove active color
+                link.querySelector('span').classList.remove('w-full'); // Remove underline
+                link.querySelector('span').classList.add('w-0');
+                
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('text-brand-gold');
+                    link.querySelector('span').classList.remove('w-0');
+                    link.querySelector('span').classList.add('w-full');
+                }
+            });
+        });
+
+        // --- 4. Modals Logic ---
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
